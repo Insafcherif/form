@@ -11,7 +11,7 @@ const FormComp = (props) => {
 
   return (
     <div>
-      <form style={{ marginTop: "20px" }}>
+      <form style={{ marginTop: "20px" }} onSubmit={() => {}}>
         <div >
           <label htmlFor="firstName">First Name</label>
           <input 
@@ -20,6 +20,7 @@ const FormComp = (props) => {
             onChange={ (e) => setFirstName(e.target.value) }
           />
         </div>
+        {firstName.length < 2 ? <p>First Name must be at least 2 characters</p> : null}
         <div >
           <label htmlFor="lastName">Last Name</label>
           <input 
@@ -28,6 +29,7 @@ const FormComp = (props) => {
             onChange={ (e) => setLastName(e.target.value) }
           />
         </div>
+        {lastName.length < 2 ? <p>Last Name must be at least 2 characters</p> : null}
         <div >
           <label htmlFor="email">Email</label>
           <input 
@@ -36,6 +38,7 @@ const FormComp = (props) => {
             onChange={ (e) => setEmail(e.target.value) }
           />
         </div>
+        {email.length < 5 ? <p>Email must be at least 5 characters</p> : null}
         <div >
           <label htmlFor="password">Password</label>
           <input 
@@ -44,6 +47,7 @@ const FormComp = (props) => {
             onChange={ (e) => setPassword(e.target.value) }
           />
         </div>
+        {password.length < 8 ? <p>Password must be at least 8 characters</p> : null}
         <div >
           <label htmlFor="confirmPassord">Confirm Password</label>
           <input 
@@ -52,6 +56,7 @@ const FormComp = (props) => {
             onChange={ (e) => setConfirmPassword(e.target.value) }
           />
         </div>
+        {confirmPassword !== password ? <p>Passwords must match</p> : null}
       </form>
 
       <div >
